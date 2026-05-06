@@ -279,68 +279,63 @@
         </div>
         <div class="header-meta">
           <div>Última actualización</div>
-          <div class="updated-at">06/05/2026 12:09</div>
+          <div class="updated-at">06/05/2026 15:45</div>
         </div>
       </div>
     </div>
-    <nav class="nav-tabs"><a href="ejecutivo.html" class="active" target="repo_dashboard" rel="noopener">📊 Ejecutivo</a><a href="explorador.html" class="" target="repo_dashboard" rel="noopener">🗂 Explorador</a><a href="detalle.html" class="" target="repo_dashboard" rel="noopener">🔍 Ver proyecto</a><a href="referencia.html" class="" target="repo_dashboard" rel="noopener">📖 Qué se mide</a></nav>
+    <nav class="nav-tabs"><a href="ejecutivo.html" class="active" target="repo_dashboard" rel="noopener">📊 Ejecutivo</a><a href="explorador.html" class="" target="repo_dashboard" rel="noopener">🗂 Explorador</a><a href="detalle.html" class="" target="repo_dashboard" rel="noopener">🔍 Ver por código</a><a href="referencia.html" class="" target="repo_dashboard" rel="noopener">📖 Cómo se calcula</a></nav>
     
     <div class="container">
 
       <div class="section">
         <h2>Resumen del portafolio</h2>
-        <p class="text-muted">Vista agregada del cumplimiento documental. Click en un negocio/año para drill-down al explorador.</p>
+        <p class="text-muted">Vista agregada de la completitud documental de los directorios del repositorio.
+        Para profundizar en un negocio o año, ve al Explorador. Para ver el detalle de un directorio específico, ve a Ver por código.</p>
         
     <div class="kpi-grid">
       
     <div class="kpi-card">
-      <div class="kpi-label">Proyectos evaluados</div>
-      <div class="kpi-value">641</div>
-      
+      <div class="kpi-label">Directorios evaluados</div>
+      <div class="kpi-value">648</div>
+      <div class="kpi-subtext">Carpetas con código de proyecto/requerimiento</div>
     </div>
       
     <div class="kpi-card error">
-      <div class="kpi-label">% Completitud vs Fase</div>
-      <div class="kpi-value">6.7%</div>
-      <div class="kpi-subtext">Ajustado al tipo detectado</div>
+      <div class="kpi-label">% Completitud (según fase)</div>
+      <div class="kpi-value">4.7%</div>
+      <div class="kpi-subtext">Solo artefactos de la fase activa</div>
     </div>
       
     <div class="kpi-card">
-      <div class="kpi-label">% vs Catálogo completo</div>
-      <div class="kpi-value">3.0%</div>
-      <div class="kpi-subtext">Contra todos los obligatorios</div>
+      <div class="kpi-label">% Completitud (catálogo total)</div>
+      <div class="kpi-value">2.1%</div>
+      <div class="kpi-subtext">Todos los artefactos del catálogo</div>
     </div>
       
     <div class="kpi-card ok">
       <div class="kpi-label">Archivos vigentes</div>
-      <div class="kpi-value">11 333</div>
-      <div class="kpi-subtext">Cuentan para completitud</div>
+      <div class="kpi-value">14 393</div>
+      <div class="kpi-subtext">A nivel de carpeta (cuentan)</div>
     </div>
       
     <div class="kpi-card">
-      <div class="kpi-label">En histórico</div>
-      <div class="kpi-value">2 036</div>
-      <div class="kpi-subtext">Archivados, no cuentan</div>
-    </div>
-      
-    <div class="kpi-card error">
-      <div class="kpi-label">En carpetas ruido</div>
-      <div class="kpi-value">6</div>
-      <div class="kpi-subtext">Requieren limpieza</div>
+      <div class="kpi-label">Archivos archivados</div>
+      <div class="kpi-value">2 043</div>
+      <div class="kpi-subtext">En subcarpeta histórico (no cuentan)</div>
     </div>
     </div>
     
-        <div class="alert alert-error">🗑️ <strong>6 archivo(s)</strong> en carpetas basura del repositorio. Requiere limpieza.</div><div class="alert alert-warn">⚠️ <strong>7017 carpeta(s) con nomenclatura no esperada.</strong> Pueden estar subestimando la completitud real.</div>
+        <div class="alert alert-warn">⚠️ <strong>7122 carpeta(s) con nombres no esperados.</strong> Pueden contener artefactos correctamente subidos pero el sistema no los reconoce porque la carpeta no coincide con la estructura oficial. Esto puede estar subestimando la completitud real.</div>
       </div>
 
       <div class="section">
         <div class="row-2">
           <div class="panel">
-            <div class="panel-title"><h2>Distribución por tipo</h2><span class="panel-hint">Proyecto · Requerimiento · Solo Demanda</span></div>
+            <div class="panel-title"><h2>🏷 Tipo de iniciativa</h2><span class="panel-hint">Cantidad de directorios según su clasificación</span></div>
             <div id="chart-tipo-wrap" class="chart-wrapper"><canvas id="chart-tipo"></canvas></div>
           </div>
           <div class="panel">
-            <div class="panel-title"><h2>¿Dónde está la masa de proyectos?</h2><span class="panel-hint">Distribución de % vs Fase</span></div>
+            <div class="panel-title"><h2>📊 Distribución de completitud</h2><span class="panel-hint">Cantidad de directorios en cada rango de %</span></div>
             <div id="chart-hist-wrap" class="chart-wrapper"><canvas id="chart-hist"></canvas></div>
           </div>
         </div>
@@ -348,11 +343,11 @@
 
       <div class="section">
         <div class="panel">
-          <div class="panel-title"><h2>Completitud por Negocio</h2><span class="panel-hint">Suma ponderada de todos los proyectos de cada área</span></div>
+          <div class="panel-title"><h2>🏢 Completitud por Negocio</h2><span class="panel-hint">Promedio ponderado de los directorios de cada área de TI</span></div>
           <div id="chart-negocio-wrap" class="chart-wrapper tall"><canvas id="chart-negocio"></canvas></div>
         </div>
         <div class="panel">
-          <div class="panel-title"><h2>Completitud por Año</h2><span class="panel-hint">Identifica proyectos rezagados de años anteriores</span></div>
+          <div class="panel-title"><h2>📅 Completitud por Año</h2><span class="panel-hint">Comparativo entre directorios de distintos años</span></div>
           <div id="chart-anio-wrap" class="chart-wrapper"><canvas id="chart-anio"></canvas></div>
         </div>
       </div>
@@ -360,17 +355,17 @@
       <div class="section">
         <div class="row-2">
           <div class="panel">
-            <div class="panel-title"><h2>🚨 Top 10 peores</h2><span class="panel-hint">Priorización — click para ver ficha</span></div>
+            <div class="panel-title"><h2>🚨 10 directorios con menor completitud</h2><span class="panel-hint">Priorización para acompañamiento — click para ver ficha</span></div>
             <table class="data">
-              <thead><tr><th>Proyecto</th><th>Negocio</th><th>Tipo</th><th class="num">% Fase</th></tr></thead>
-              <tbody><tr><td><a href="detalle.html#proyecto=P_MCP0001" target="repo_dashboard" rel="noopener">P_MCP0001</a></td><td class="text-sm text-muted"></td><td><span class="badge">Requerimiento</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2025006" target="repo_dashboard" rel="noopener">SNATI2025006</a></td><td class="text-sm text-muted"></td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2025007" target="repo_dashboard" rel="noopener">SNATI2025007</a></td><td class="text-sm text-muted"></td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNAAF2025022" target="repo_dashboard" rel="noopener">SNAAF2025022</a></td><td class="text-sm text-muted"></td><td><span class="badge">Requerimiento</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNAAF2025017" target="repo_dashboard" rel="noopener">SNAAF2025017</a></td><td class="text-sm text-muted"></td><td><span class="badge">Requerimiento</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNAA2026004" target="repo_dashboard" rel="noopener">SNAA2026004</a></td><td class="text-sm text-muted"></td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNAA2025069" target="repo_dashboard" rel="noopener">SNAA2025069</a></td><td class="text-sm text-muted"></td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=P_MCP0019" target="repo_dashboard" rel="noopener">P_MCP0019</a></td><td class="text-sm text-muted"></td><td><span class="badge">Requerimiento</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNATI2024000197" target="repo_dashboard" rel="noopener">NSNATI2024000197</a></td><td class="text-sm text-muted"></td><td><span class="badge">Requerimiento</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2026050" target="repo_dashboard" rel="noopener">SNATI2026050</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Proyecto</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr></tbody>
+              <thead><tr><th>Directorio</th><th>Negocio</th><th>Tipo</th><th class="num">% Completitud</th></tr></thead>
+              <tbody><tr><td><a href="detalle.html#proyecto=SNATI2026999" target="repo_dashboard" rel="noopener">SNATI2026999</a></td><td class="text-sm text-muted"></td><td><span class="badge">Proyecto</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNAA2025000034" target="repo_dashboard" rel="noopener">NSNAA2025000034</a></td><td class="text-sm text-muted"></td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNAAF2024000013" target="repo_dashboard" rel="noopener">NSNAAF2024000013</a></td><td class="text-sm text-muted"></td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNAAF2024000018" target="repo_dashboard" rel="noopener">NSNAAF2024000018</a></td><td class="text-sm text-muted"></td><td><span class="badge">Requerimiento</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNAAF2024000019" target="repo_dashboard" rel="noopener">NSNAAF2024000019</a></td><td class="text-sm text-muted"></td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNAAF2024000020" target="repo_dashboard" rel="noopener">NSNAAF2024000020</a></td><td class="text-sm text-muted"></td><td><span class="badge">Requerimiento</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNAA2026004" target="repo_dashboard" rel="noopener">SNAA2026004</a></td><td class="text-sm text-muted"></td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNAAF2025017" target="repo_dashboard" rel="noopener">SNAAF2025017</a></td><td class="text-sm text-muted"></td><td><span class="badge">Requerimiento</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNAA2025000021" target="repo_dashboard" rel="noopener">NSNAA2025000021</a></td><td class="text-sm text-muted"></td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNAA2025000022" target="repo_dashboard" rel="noopener">NSNAA2025000022</a></td><td class="text-sm text-muted"></td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">0.0%</span></td></tr></tbody>
             </table>
           </div>
           <div class="panel">
-            <div class="panel-title"><h2>🏆 Top 10 mejores</h2><span class="panel-hint">Reconocimiento</span></div>
+            <div class="panel-title"><h2>🏆 10 directorios con mayor completitud</h2><span class="panel-hint">Reconocimiento</span></div>
             <table class="data">
-              <thead><tr><th>Proyecto</th><th>Negocio</th><th>Tipo</th><th class="num">% Fase</th></tr></thead>
-              <tbody><tr><td><a href="detalle.html#proyecto=SNAA2025072" target="repo_dashboard" rel="noopener">SNAA2025072</a></td><td class="text-sm text-muted">SNAA</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill ok">80.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNAA2025000006" target="repo_dashboard" rel="noopener">NSNAA2025000006</a></td><td class="text-sm text-muted">SNAA</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">70.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2025144" target="repo_dashboard" rel="noopener">SNATI2025144</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">70.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2026065" target="repo_dashboard" rel="noopener">SNATI2026065</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">70.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2025164" target="repo_dashboard" rel="noopener">SNATI2025164</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">70.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNAA2025075" target="repo_dashboard" rel="noopener">SNAA2025075</a></td><td class="text-sm text-muted">SNAA</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">70.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNAA2025067" target="repo_dashboard" rel="noopener">SNAA2025067</a></td><td class="text-sm text-muted">SNAA</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">70.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2025130" target="repo_dashboard" rel="noopener">SNATI2025130</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">70.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2025203" target="repo_dashboard" rel="noopener">SNATI2025203</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">60.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2026062" target="repo_dashboard" rel="noopener">SNATI2026062</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">60.0%</span></td></tr></tbody>
+              <thead><tr><th>Directorio</th><th>Negocio</th><th>Tipo</th><th class="num">% Completitud</th></tr></thead>
+              <tbody><tr><td><a href="detalle.html#proyecto=SNATI2026094" target="repo_dashboard" rel="noopener">SNATI2026094</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">40.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNAA2024000039" target="repo_dashboard" rel="noopener">NSNAA2024000039</a></td><td class="text-sm text-muted">SNAA</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">40.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2025175" target="repo_dashboard" rel="noopener">SNATI2025175</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">40.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2025165" target="repo_dashboard" rel="noopener">SNATI2025165</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">40.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2025191" target="repo_dashboard" rel="noopener">SNATI2025191</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">40.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2025130" target="repo_dashboard" rel="noopener">SNATI2025130</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">40.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNATI2025202" target="repo_dashboard" rel="noopener">SNATI2025202</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">40.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=SNAA2025072" target="repo_dashboard" rel="noopener">SNAA2025072</a></td><td class="text-sm text-muted">SNAA</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill warn">40.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNAA2025000012" target="repo_dashboard" rel="noopener">NSNAA2025000012</a></td><td class="text-sm text-muted">SNAA</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">30.0%</span></td></tr><tr><td><a href="detalle.html#proyecto=NSNATI2025000077" target="repo_dashboard" rel="noopener">NSNATI2025000077</a></td><td class="text-sm text-muted">SNATI</td><td><span class="badge">Solo_Demanda</span></td><td class="num"><span class="pct-pill error">30.0%</span></td></tr></tbody>
             </table>
           </div>
         </div>
@@ -378,23 +373,26 @@
 
       <div class="section">
         <div class="alert alert-info">
-          💡 <strong>Para navegar por negocio/año/código y ver todos los proyectos:</strong>
-          ve al <a href="explorador.html" target="repo_dashboard" rel="noopener">🗂 Explorador jerárquico</a>.<br>
-          Para ver el detalle de un proyecto específico con la lista de artefactos que le faltan:
-          <a href="detalle.html" target="repo_dashboard" rel="noopener">🔍 Ver proyecto</a>.
+          💡 <strong>¿Cómo navegar el dashboard?</strong><br>
+          Para explorar todos los directorios por Negocio → Año → Código:
+          ve al <a href="explorador.html" target="repo_dashboard" rel="noopener">🗂 Explorador</a>.<br>
+          Para ver el detalle de un directorio específico (qué artefactos tiene y cuáles le faltan):
+          <a href="detalle.html" target="repo_dashboard" rel="noopener">🔍 Ver por código</a>.<br>
+          Para entender cómo se calcula la completitud y qué artefactos se esperan:
+          <a href="referencia.html" target="repo_dashboard" rel="noopener">📖 Cómo se calcula</a>.
         </div>
       </div>
 
     </div>
     
     <div class="footer">
-      <div>Generado automáticamente el 06/05/2026 12:09</div>
+      <div>Generado automáticamente el 06/05/2026 15:45</div>
       <div class="text-sm">Fuente: descarga REST API de la biblioteca SPO "Demanda y Portafolio TI" · Catálogo v6 de artefactos obligatorios</div>
     </div>
     
     
     <script>
-    const DATA = {"colors": {"primario": "#003d6b", "secundario": "#0066b3", "acento": "#ffa500", "ok": "#22a06b", "warn": "#f2a900", "error": "#c92e2e", "light": "#718096", "tipo": ["#0066b3", "#ffa500", "#003d6b", "#f2a900", "#c92e2e"]}, "tipo_labels": ["Solo_Demanda", "Requerimiento", "Proyecto", "Vacio", "Mixto"], "tipo_values": [253, 216, 165, 5, 2], "hist_labels": ["0-20%", "20-40%", "40-60%", "60-80%", "80-100%"], "hist_values": [513, 95, 19, 13, 1], "neg_labels": ["", "INSI", "SNAAF", "SNATI", "SN", "SNAA"], "neg_values": [0.0, 0.6, 11.6, 12.6, 15.6, 18.1], "neg_n": [192, 49, 36, 283, 20, 61], "anio_labels": ["", "2022", "2023", "2024", "2025", "2026"], "anio_values": [0.0, 0.0, 0.3, 1.7, 11.1, 16.6], "anio_n": [192, 3, 10, 27, 292, 117]};
+    const DATA = {"colors": {"primario": "#003d6b", "secundario": "#0066b3", "acento": "#ffa500", "ok": "#22a06b", "warn": "#f2a900", "error": "#c92e2e", "light": "#718096", "tipo": ["#0066b3", "#ffa500", "#003d6b", "#f2a900", "#c92e2e"]}, "tipo_labels": ["Solo_Demanda", "Requerimiento", "Proyecto", "Vacio", "Mixto"], "tipo_values": [256, 220, 165, 5, 2], "hist_labels": ["0-20%", "20-40%", "40-60%", "60-80%", "80-100%"], "hist_values": [587, 53, 8, 0, 0], "neg_labels": ["", "INSI", "SNATI", "SNAAF", "SN", "SNAA"], "neg_values": [0.0, 0.6, 8.5, 8.8, 11.4, 12.9], "neg_n": [193, 50, 286, 36, 21, 62], "anio_labels": ["", "2022", "2023", "2024", "2025", "2026"], "anio_values": [0.0, 0.0, 0.3, 1.4, 8.4, 9.4], "anio_n": [193, 3, 10, 27, 292, 123]};
 
     function waitForChart(maxMs, step, cb, fallback) {
       const t0 = Date.now();

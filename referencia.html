@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
-  <title>Qué se mide y cómo — Demanda y Portafolio TI</title>
+  <title>Cómo se calcula — Demanda y Portafolio TI</title>
   
   <style>
   
@@ -272,47 +272,53 @@
     <div class="header">
       <div class="header-flex">
         <div>
-          <h1>📖 Qué se mide y cómo</h1>
+          <h1>📖 Cómo se calcula la completitud</h1>
           <div class="subtitle">Biblioteca "Demanda y Portafolio TI" · Repositorio Central INSI</div>
         </div>
         <div class="header-meta">
           <div>Última actualización</div>
-          <div class="updated-at">06/05/2026 12:09</div>
+          <div class="updated-at">06/05/2026 15:45</div>
         </div>
       </div>
     </div>
-    <nav class="nav-tabs"><a href="ejecutivo.html" class="" target="repo_dashboard" rel="noopener">📊 Ejecutivo</a><a href="explorador.html" class="" target="repo_dashboard" rel="noopener">🗂 Explorador</a><a href="detalle.html" class="" target="repo_dashboard" rel="noopener">🔍 Ver proyecto</a><a href="referencia.html" class="active" target="repo_dashboard" rel="noopener">📖 Qué se mide</a></nav>
+    <nav class="nav-tabs"><a href="ejecutivo.html" class="" target="repo_dashboard" rel="noopener">📊 Ejecutivo</a><a href="explorador.html" class="" target="repo_dashboard" rel="noopener">🗂 Explorador</a><a href="detalle.html" class="" target="repo_dashboard" rel="noopener">🔍 Ver por código</a><a href="referencia.html" class="active" target="repo_dashboard" rel="noopener">📖 Cómo se calcula</a></nav>
     
     <div class="container">
 
       <div class="section">
         <div class="panel">
-          <h2>¿Qué mide este reporte?</h2>
-          <p>Evalúa el <strong>cumplimiento documental</strong> de cada proyecto o requerimiento en la biblioteca
-          <em>Demanda y Portafolio TI</em>. Por cada carpeta existe un catálogo de artefactos obligatorios y se calcula
-          qué porcentaje están efectivamente presentes como archivos.</p>
-          <p>El resultado se expone en tres niveles: <a href="ejecutivo.html" target="repo_dashboard" rel="noopener">ejecutivo</a> (gerencia),
-          <a href="explorador.html" target="repo_dashboard" rel="noopener">explorador</a> (coordinadores), y <a href="detalle.html" target="repo_dashboard" rel="noopener">ficha individual</a>
-          (jefes de proyecto).</p>
+          <h2>¿Qué evalúa el dashboard?</h2>
+          <p>Mide el <strong>cumplimiento documental</strong> de cada directorio (proyecto o requerimiento)
+          en la biblioteca <em>Demanda y Portafolio TI</em>. Por cada carpeta del repositorio existe un
+          catálogo de artefactos obligatorios, y se calcula qué porcentaje están efectivamente presentes
+          como archivos.</p>
+          <p>El dashboard se organiza en tres niveles según la audiencia:</p>
+          <ul>
+            <li><a href="ejecutivo.html" target="repo_dashboard" rel="noopener">📊 <strong>Ejecutivo</strong></a> — vista agregada del portafolio para gerencia y dirección.</li>
+            <li><a href="explorador.html" target="repo_dashboard" rel="noopener">🗂 <strong>Explorador</strong></a> — navegación por Negocio → Año → Directorio para coordinadores.</li>
+            <li><a href="detalle.html" target="repo_dashboard" rel="noopener">🔍 <strong>Ver por código</strong></a> — ficha individual con artefactos faltantes para jefes de proyecto.</li>
+          </ul>
         </div>
       </div>
 
       <div class="section">
         <div class="panel">
-          <h2>Dos porcentajes distintos — ¿cuál debo mirar?</h2>
+          <h2>Dos formas de medir completitud — ¿cuál mirar?</h2>
           <div class="row-2">
             <div>
-              <h3>🎯 % vs Fase (recomendado)</h3>
-              <p>Se ajusta al tipo de iniciativa detectado. Un proyecto que solo ha iniciado la fase de
-              Demanda no es castigado por no tener aún documentos de Proyecto.</p>
-              <div class="code-block">Proyecto nuevo        → mide contra Demanda + Proyecto
-Requerimiento         → mide contra Demanda + Requerimiento
-Solo en fase Demanda  → mide solo contra Demanda</div>
+              <h3>🎯 % Completitud (según fase)</h3>
+              <p><strong>Es la métrica recomendada</strong> para evaluar a un directorio. Se ajusta al tipo
+              de iniciativa detectado: solo considera los artefactos de la fase activa, no castiga a un
+              directorio joven por no tener documentos de fases que aún no le tocan.</p>
+              <div class="code-block">Proyecto       → mide contra Demanda + Proyecto
+Requerimiento  → mide contra Demanda + Requerimiento
+Solo Demanda   → mide solo contra Demanda</div>
             </div>
             <div>
-              <h3>📚 % vs Catálogo completo</h3>
-              <p>Denominador fijo contra los <strong>46 artefactos obligatorios medibles</strong>
-              del catálogo. Útil como referencia absoluta pero castiga a proyectos en fases tempranas.</p>
+              <h3>📚 % Completitud (catálogo total)</h3>
+              <p>Denominador fijo contra los <strong>46 artefactos obligatorios</strong> del
+              catálogo completo. Útil como referencia absoluta, pero penaliza a directorios que aún están
+              en fases tempranas.</p>
             </div>
           </div>
         </div>
@@ -320,23 +326,23 @@ Solo en fase Demanda  → mide solo contra Demanda</div>
 
       <div class="section">
         <div class="panel">
-          <h2>Qué SÍ se cuenta y qué NO</h2>
+          <h2>Reglas de conteo de archivos</h2>
           <div class="row-2">
             <div>
-              <h3 style="color:#22a06b">✅ Sí cuenta</h3>
+              <h3 style="color:#22a06b">✅ Sí cuentan para la completitud</h3>
               <ul>
-                <li>Archivos directamente bajo la carpeta esperada (ej. <code>Proyecto/1_Gestion/Plan_*.docx</code>).</li>
-                <li>Archivos cifrados con FRP — se descifra el nombre lógico quitando <code>.frpenc</code>.</li>
-                <li>Archivos cuyo nombre coincide con la nomenclatura (regex), o archivos genéricos cuando el catálogo dice "No definido".</li>
+                <li>Archivos que están a <strong>nivel de la carpeta esperada</strong> (ej. <code>Proyecto/1_Gestion/Plan_*.docx</code>).</li>
+                <li>Archivos cifrados con FRP — el sistema descifra el nombre lógico quitando la extensión <code>.frpenc</code> antes de comparar.</li>
+                <li>Archivos cuyo nombre coincide con la <strong>nomenclatura esperada</strong> según el catálogo.</li>
+                <li>Archivos genéricos (con cualquier nombre) cuando el catálogo dice "No definido" para ese artefacto.</li>
               </ul>
             </div>
             <div>
-              <h3 style="color:#c92e2e">❌ NO cuenta</h3>
+              <h3 style="color:#c92e2e">❌ NO cuentan para la completitud</h3>
               <ul>
-                <li>Archivos dentro de subcarpetas <code>historico</code> o <code>histórico</code>.</li>
-                <li>Archivos dentro de <code>temp</code>, <code>basura</code>, <code>papelera</code>, <code>backup</code>.</li>
+                <li>Archivos dentro de la subcarpeta <code>historico/</code> o <code>histórico/</code> — son versiones anteriores archivadas.</li>
                 <li>Archivos de sistema: <code>readme.txt</code>, <code>thumbs.db</code>, <code>desktop.ini</code>, <code>.DS_Store</code>.</li>
-                <li>Artefactos externos (Project Online, enlaces) — no medibles por este script.</li>
+                <li>Artefactos que viven fuera del repositorio (Project Online, enlaces externos a otros sistemas) — no son medibles desde aquí.</li>
               </ul>
             </div>
           </div>
@@ -345,11 +351,12 @@ Solo en fase Demanda  → mide solo contra Demanda</div>
 
       <div class="section">
         <div class="panel">
-          <h2>Regla de histórico — la versión vigente va arriba</h2>
-          <p>La convención del repositorio es que la <strong>versión vigente debe estar visible</strong> a nivel
-          de la carpeta correspondiente, y las versiones anteriores se mueven a <code>historico/</code>.</p>
-          <p>Por eso <strong>solo cuenta como presente</strong> el archivo que está a nivel de la carpeta,
-          no las copias dentro de <code>historico/</code>.</p>
+          <h2>Por qué la carpeta histórico no cuenta</h2>
+          <p>La convención del repositorio es que la <strong>versión vigente del documento debe estar visible</strong>
+          a nivel de la carpeta correspondiente. Las versiones anteriores se mueven a la subcarpeta
+          <code>historico/</code> para no confundir cuál es la actual.</p>
+          <p>Por eso <strong>solo cuenta como presente</strong> el archivo que está a nivel de la carpeta;
+          las copias dentro de <code>historico/</code> no se cuentan, aunque sean documentos válidos.</p>
           <div class="code-block">/Proyecto/1_Gestion/
     ├── Plan_Gestion_Proyecto_Inf_ABC.docx    ✅ Cuenta (vigente)
     ├── Acta_proyecto_ABC.docx                ✅ Cuenta (vigente)
@@ -363,29 +370,93 @@ Solo en fase Demanda  → mide solo contra Demanda</div>
 
       <div class="section">
         <div class="panel">
-          <h2>Cómo se reconoce un artefacto presente — matching híbrido</h2>
+          <h2>Cómo el sistema reconoce un artefacto</h2>
+          <p>Para detectar que un archivo presente equivale a un artefacto del catálogo, el sistema usa
+          un <strong>método de doble verificación</strong>:</p>
           <ul>
-            <li><strong>Con nomenclatura específica</strong> (ej. <code>FN_[Cód.Nec]</code>,
-            <code>Acta_proyecto_[Código Proyecto].doc</code>) → se convierte en regex y se busca un archivo que coincida.</li>
-            <li><strong>Con nomenclatura "No definido"</strong> → se cuenta por cantidad: si se esperan N artefactos
-            y hay al menos N archivos genéricos en la carpeta, se considera presencia.</li>
+            <li><strong>Si el catálogo define una nomenclatura específica</strong> (ej. <code>FN_[Cód.Nec]</code>,
+            <code>Acta_proyecto_[Código Proyecto].doc</code>) → el sistema convierte el patrón en una expresión
+            regular y busca archivos cuyo nombre coincida exactamente.</li>
+            <li><strong>Si el catálogo dice "No definido" para la nomenclatura</strong> → el sistema cuenta por
+            cantidad: si se esperan N artefactos y hay al menos N archivos genéricos en la carpeta, se asume
+            que están presentes.</li>
           </ul>
+          <div class="alert alert-warn" style="margin-top:1rem">
+            ⚠️ <strong>Implicación importante:</strong> si el nombre de un archivo no respeta la nomenclatura
+            esperada, el sistema NO lo reconoce como el artefacto correspondiente, aunque el contenido sea
+            correcto. Por eso es crítico respetar la convención de nombres al subir documentos al repositorio.
+            Esto se ve reflejado en la ficha de cada directorio como un artefacto faltante.
+          </div>
         </div>
       </div>
 
       <div class="section">
         <div class="panel">
-          <h2>📋 Catálogo completo de artefactos</h2>
-          <p class="text-muted">Total: <strong>71</strong> artefactos · <strong>46</strong> obligatorios ·
-          <strong>9</strong> fuera del repositorio · <strong>46</strong> medibles aquí.
-          Click en cada fase para expandir.</p>
+          <h2>Hitos con artefactos alternativos (OR-sets)</h2>
+          <p>Algunas carpetas del catálogo permiten <strong>cumplir un hito con cualquiera de varios formatos
+          alternativos</strong>. En estos casos, basta con tener <strong>al menos uno</strong> de los formatos
+          para que el hito se considere cumplido — no se exigen todos.</p>
+
+          <p class="text-muted">El sistema reconoce los archivos por su prefijo y los asigna automáticamente al hito correcto.</p>
+
+          <h3 style="margin-top:1.25rem">📍 Demanda / 2_Entend_o_Consenso</h3>
+          <p>Esta carpeta tiene <strong>2 hitos</strong>, cada uno cumplible con cualquiera de 3 formatos:</p>
+
+          <div class="row-2">
+            <div>
+              <h4>Hito 1: Entendimiento inicial</h4>
+              <p>Basta con uno de:</p>
+              <ul>
+                <li>Archivo <code>MPN_*.docx</code> (Modelo de Procesos de Negocio)</li>
+                <li>Archivo <code>DEF_*.docx</code> (Definición funcional)</li>
+                <li>Archivo <code>HU_*.xlsx</code> (Historias de usuario)</li>
+              </ul>
+              <p class="text-muted text-sm">El nombre <strong>NO debe contener</strong> "consensu" para clasificar como inicial.</p>
+            </div>
+            <div>
+              <h4>Hito 2: Entendimiento consensuado</h4>
+              <p>Basta con uno de:</p>
+              <ul>
+                <li>Archivo <code>MPN_*_consensuado.*</code></li>
+                <li>Archivo <code>DEF_*_consensuado.*</code></li>
+                <li>Archivo <code>HU_*_consensuado.*</code></li>
+              </ul>
+              <p class="text-muted text-sm">El nombre <strong>SÍ debe contener</strong> "consensu" para clasificar como consensuado.</p>
+            </div>
+          </div>
+
+          <h3 style="margin-top:1.25rem">📍 Proyecto / 2_Producto / 2_Requerimiento (también aplica a Requerimiento / 2_Producto / 2_Requerimiento)</h3>
+          <p>El catálogo define un único artefacto llamado <strong>"RIN/ Historia de usuario (HU)"</strong>,
+          que se cumple con cualquiera de los dos formatos:</p>
+          <ul>
+            <li>Archivo <code>RIN_*.docx</code> (Especificación de requerimiento)</li>
+            <li>Archivo <code>HU_*.xlsx</code> (Historia de usuario)</li>
+          </ul>
+
+          <div class="alert alert-info" style="margin-top:1rem">
+            💡 <strong>¿Cómo se ve esto en la ficha?</strong> Cuando un hito OR-set está cumplido, aparece en
+            <em>"Artefactos detectados"</em> con un badge azul ("cumplido vía MPN") y el nombre del archivo
+            que cumplió. Cuando no está cumplido, aparece en <em>"Artefactos faltantes"</em> con un badge
+            amarillo ("hito alternativo") y la lista de formatos aceptados.
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="panel">
+          <h2>📋 Catálogo de artefactos esperados</h2>
+          <p class="text-muted">Total: <strong>71</strong> artefactos definidos ·
+          <strong>46</strong> obligatorios ·
+          <strong>9</strong> fuera del repositorio (no medibles) ·
+          <strong>46</strong> medibles por el dashboard.
+          Click en cada fase para expandir el listado completo.</p>
           
         <div class="accordion-group">
           <div class="accordion-head" onclick="toggleAcc(this)">
             <span>📦 <strong>Demanda</strong> · 12 artefacto(s) (10 obligatorios)</span>
             <span class="arrow">▶</span>
           </div>
-          <div class="accordion-body"><h3 style="margin-top:1.25rem">📂 1_Registro</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Memorándum de necesidad</td><td><code>No definido</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Ficha de necesidad</td><td><code>FN_[Cód.Nec]</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 2_Entend_o_Consenso</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>MPN versión inicial</td><td><code>No definido</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>MPN consensuado</td><td><code>No definido</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>DEF version inicial</td><td><code>No definido</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>DEF consensuado</td><td><code>No definido</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>HU versión inicial</td><td><code>No definido</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>HU consensuado</td><td><code>No definido</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 3_DSI</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>DSI aprobado</td><td><code>DSI_[CodNec]</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Acta de aprobación de comité de arquitectura</td><td><code>Acta_ComiteArq_[CodNec]</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge">Opcional</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 4_Estimacion</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Formato FPA (primera estimación)</td><td><code>FormatoFPA_[Cód. Nec]</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 5_Plan</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Plan a alto nivel de la necesidad (enviado a portafolio)</td><td><code>No definido</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table></div>
+          <div class="accordion-body"><h3 style="margin-top:1.25rem">📂 1_Registro</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Memorándum de necesidad</td><td><code>No definido</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Ficha de necesidad</td><td><code>FN_[Cód.Nec]</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 2_Entend_o_Consenso</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>MPN versión inicial</td><td><code>MPN</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>MPN consensuado</td><td><code>MPN</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>DEF version inicial</td><td><code>DEF</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>DEF consensuado</td><td><code>DEF</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>HU versión inicial</td><td><code>HU</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>HU consensuado</td><td><code>HU</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 3_DSI</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>DSI aprobado</td><td><code>DSI_[CodNec]</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Acta de aprobación de comité de arquitectura</td><td><code>Acta_ComiteArq_[CodNec]</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge">Opcional</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 4_Estimacion</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Formato FPA (primera estimación)</td><td><code>FormatoFPA_[Cód. Nec]</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 5_Plan</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Plan a alto nivel de la necesidad (enviado a portafolio)</td><td><code>No definido</code></td><td>Gestor de Demanda</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table></div>
         </div>
         
         <div class="accordion-group">
@@ -393,7 +464,7 @@ Solo en fase Demanda  → mide solo contra Demanda</div>
             <span>📦 <strong>Proyecto</strong> · 35 artefacto(s) (26 obligatorios)</span>
             <span class="arrow">▶</span>
           </div>
-          <div class="accordion-body"><h3 style="margin-top:1.25rem">📂 1_Gestion</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Plan de Gestión del Proyecto</td><td><code>Plan_Gestión_Proyecto_Inf_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Acta de Constitución del Proyecto</td><td><code>Acta_proyecto_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Registro Interesados</td><td><code>Registro_Interesados_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Enunciado del Alcance del Proyecto</td><td><code>Enunciado_Alcance_Proyecto_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Estructura de Desglose del Trabajo (EDT) </td><td><code>EDT_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Diccionario EDT</td><td><code>Diccionario_EDT_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Cronograma del Proyecto (+) </td><td><code>Project Online</code></td><td>JPI</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Matriz de Comunicaciones </td><td><code>Matriz_Mecanismos_Comunicación_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Registro de Riesgos (+) </td><td><code>Project Online</code></td><td>JPI</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Acta de Reunión </td><td><code>Acta_reunión_[Código Proyecto]_ Fecha(00/00/0000).doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Registro de Problemas (+) </td><td><code>Project Online</code></td><td>JPI</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Informe de Estado </td><td><code>Informe_Estado_[Código Proyecto]_ Fecha(00/00/0000).doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Solicitud de Cambio </td><td><code>SC_[Fecha de fin de elaboración de la SC]_[Código Proyecto]. doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Acta de Aceptación de Cierre </td><td><code>Acta_Aceptación_Cierre_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Lección Aprendida</td><td><code>Lección_Aprendida_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 2_Producto</h3><h4 style="margin-top:1rem; color:#0066b3">📁 1_Modelamiento Proceso</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Modelo de Procesos de Negocio (MPN)</td><td><code>No definido</code></td><td>JPI/Supervisor De Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 2_Requerimiento</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>RIN/ Historia de usuario (HU)</td><td><code>No definido</code></td><td>JPI/Supervisor De Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 3_DSI</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Diseño de Solución Informática</td><td><code>DSI_[Código Proyecto].doc </code></td><td>Arquitecto de Aplicaciones</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 4_MRI</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>MRI</td><td><code>MRI_[Código Proyecto].doc</code></td><td>Supervisor De Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 5_Ana_Dis</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>F2 Análisis y Diseño</td><td><code>f2_[codmodulo]_ana_dis.doc</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Diagrama de contexto</td><td><code>diagrama_[codmodulo]_contexto</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Diagrama de clases</td><td><code>diagrama_[codmodulo]_clases</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Diagrama de despliegue</td><td><code>diagrama_[codmodulo]_despliegue</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Diagrama de componentes</td><td><code>diagrama_[codmodulo]_componentes</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Modelo Lógico de Datos</td><td><code>modelo_[codmodulo]_log.ldm</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Modelo Físico de Datos</td><td><code>modelo_[codmodulo]_fis.pdm</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 6_Pases a Producción</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>[Nro.Pase a Producción]</td><td><code>F2_[cod_modulo]_ana_dis.doc</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPP_[nropase].doc</code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPD_[nropase].doc</code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPS_[nropase].doc</code></td><td>Analista de Calidad</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>FAU_[nropase].doc</code></td><td>Analista de Calidad</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>manual_usuario_[codmodulo].doc, tutorial_[codmodulo].doc, </code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>VerEst_[nropase].xls</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 3_Adquisicion</h3><h4 style="margin-top:1rem; color:#0066b3">📁 1_Contrataciones</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>[Cod. Contratación]</td><td><code>Enlace a Directorio de la Contratación (Adquisiciones TI)</code></td><td>JPI</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 2_FSW</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>[OS_FSW]</td><td><code>Enlace a Directorio de las OS de FSW</code></td><td>JPI</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr></tbody></table></div>
+          <div class="accordion-body"><h3 style="margin-top:1.25rem">📂 1_Gestion</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Plan de Gestión del Proyecto</td><td><code>Plan_Gestión_Proyecto_Inf_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Acta de Constitución del Proyecto</td><td><code>Acta_proyecto_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Registro Interesados</td><td><code>Registro_Interesados_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Enunciado del Alcance del Proyecto</td><td><code>Enunciado_Alcance_Proyecto_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Estructura de Desglose del Trabajo (EDT) </td><td><code>EDT_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Diccionario EDT</td><td><code>Diccionario_EDT_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Cronograma del Proyecto (+) </td><td><code>Project Online</code></td><td>JPI</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Matriz de Comunicaciones </td><td><code>Matriz_Mecanismos_Comunicación_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Registro de Riesgos (+) </td><td><code>Project Online</code></td><td>JPI</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Acta de Reunión </td><td><code>Acta_reunión_[Código Proyecto]_ Fecha(00/00/0000).doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Registro de Problemas (+) </td><td><code>Project Online</code></td><td>JPI</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Informe de Estado </td><td><code>Informe_Estado_[Código Proyecto]_ Fecha(00/00/0000).doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Solicitud de Cambio </td><td><code>SC_[Fecha de fin de elaboración de la SC]_[Código Proyecto]. doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Acta de Aceptación de Cierre </td><td><code>Acta_Aceptación_Cierre_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Lección Aprendida</td><td><code>Lección_Aprendida_[Código Proyecto].doc </code></td><td>JPI</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 2_Producto</h3><h4 style="margin-top:1rem; color:#0066b3">📁 1_Modelamiento Proceso</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Modelo de Procesos de Negocio (MPN)</td><td><code>MPN</code></td><td>JPI/Supervisor De Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 2_Requerimiento</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>RIN/ Historia de usuario (HU)</td><td><code>RIN</code></td><td>JPI/Supervisor De Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 3_DSI</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Diseño de Solución Informática</td><td><code>DSI_[Código Proyecto].doc </code></td><td>Arquitecto de Aplicaciones</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 4_MRI</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>MRI</td><td><code>MRI_[Código Proyecto].doc</code></td><td>Supervisor De Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 5_Ana_Dis</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>F2 Análisis y Diseño</td><td><code>f2_[codmodulo]_ana_dis.doc</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Diagrama de contexto</td><td><code>diagrama_[codmodulo]_contexto</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Diagrama de clases</td><td><code>diagrama_[codmodulo]_clases</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Diagrama de despliegue</td><td><code>diagrama_[codmodulo]_despliegue</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Diagrama de componentes</td><td><code>diagrama_[codmodulo]_componentes</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Modelo Lógico de Datos</td><td><code>modelo_[codmodulo]_log.ldm</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Modelo Físico de Datos</td><td><code>modelo_[codmodulo]_fis.pdm</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 6_Pases a Producción</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>[Nro.Pase a Producción]</td><td><code>F2_[cod_modulo]_ana_dis.doc</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPP_[nropase].doc</code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPD_[nropase].doc</code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPS_[nropase].doc</code></td><td>Analista de Calidad</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>FAU_[nropase].doc</code></td><td>Analista de Calidad</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>manual_usuario_[codmodulo].doc, tutorial_[codmodulo].doc, </code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>VerEst_[nropase].xls</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 3_Adquisicion</h3><h4 style="margin-top:1rem; color:#0066b3">📁 1_Contrataciones</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>[Cod. Contratación]</td><td><code>Enlace a Directorio de la Contratación (Adquisiciones TI)</code></td><td>JPI</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 2_FSW</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>[OS_FSW]</td><td><code>Enlace a Directorio de las OS de FSW</code></td><td>JPI</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr></tbody></table></div>
         </div>
         
         <div class="accordion-group">
@@ -401,7 +472,7 @@ Solo en fase Demanda  → mide solo contra Demanda</div>
             <span>📦 <strong>Requerimiento</strong> · 24 artefacto(s) (10 obligatorios)</span>
             <span class="arrow">▶</span>
           </div>
-          <div class="accordion-body"><h3 style="margin-top:1.25rem">📂 1_Gestión</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Cronograma del Requerimiento (+) </td><td><code>Project Online</code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Registro de Riesgos (+) </td><td><code>Project Online</code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Acta de Reunión </td><td><code>Acta_reunión_[Código Req.]_ Fecha(00/00/0000).doc </code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Registro de Problemas (+) </td><td><code>Project Online</code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Informe de Estado </td><td><code>Informe_Estado_[Código Req.]_ Fecha(00/00/0000).doc </code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Solicitud de Cambio </td><td><code>SC_[Fecha de fin de elaboración de la SC]_[Código Req.]. doc </code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge">Opcional</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 2_Producto</h3><h4 style="margin-top:1rem; color:#0066b3">📁 1_Modelamiento Proceso</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Modelo de Procesos de Negocio (MPN)</td><td><code>No definido</code></td><td>Gestor de Portafolio/Supervisor de Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 2_Requerimiento</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>RIN/ Historia de usuario (HU)</td><td><code>No definido</code></td><td>Gestor de Portafolio/Supervisor de Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 3_MRI</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>MRI</td><td><code>MRI_[Código Proyecto].doc</code></td><td>Supervisor de Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 4_Ana_Dis</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>F2 Análisis y Diseño</td><td><code>f2_[codmodulo]_ana_dis.doc</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Diagrama de contexto</td><td><code>diagrama_[codmodulo]_contexto</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Diagrama de clases</td><td><code>diagrama_[codmodulo]_clases</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Diagrama de despliegue</td><td><code>diagrama_[codmodulo]_despliegue</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Diagrama de componentes</td><td><code>diagrama_[codmodulo]_componentes</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Modelo Lógico de Datos</td><td><code>modelo_[codmodulo]_log.ldm</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Modelo Físico de Datos</td><td><code>modelo_[codmodulo]_fis.pdm</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 5_Pases a Producción</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>[Nro.Pase a Producción]</td><td><code>F2_[cod_modulo]_ana_dis.doc</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPP_[nropase].doc</code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPD_[nropase].doc</code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPS_[nropase].doc</code></td><td>Analista de Calidad</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>FAU_[nropase].doc</code></td><td>Analista de Calidad</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>manual_usuario_[codmodulo].doc, tutorial_[codmodulo].doc, </code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>VerEst_[nropase].xls</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 3_Adquisición</h3><h4 style="margin-top:1rem; color:#0066b3">📁 2_FSW</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>[OS_FSW]</td><td><code>Enlace a Directorio de las OS de FSW</code></td><td>Supervisor de Desarrollo</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr></tbody></table></div>
+          <div class="accordion-body"><h3 style="margin-top:1.25rem">📂 1_Gestión</h3><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Cronograma del Requerimiento (+) </td><td><code>Project Online</code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Registro de Riesgos (+) </td><td><code>Project Online</code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Acta de Reunión </td><td><code>Acta_reunión_[Código Req.]_ Fecha(00/00/0000).doc </code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Registro de Problemas (+) </td><td><code>Project Online</code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr><tr><td>Informe de Estado </td><td><code>Informe_Estado_[Código Req.]_ Fecha(00/00/0000).doc </code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Solicitud de Cambio </td><td><code>SC_[Fecha de fin de elaboración de la SC]_[Código Req.]. doc </code></td><td>Gestor de Portafolio</td><td class="nowrap"><span class="badge">Opcional</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 2_Producto</h3><h4 style="margin-top:1rem; color:#0066b3">📁 1_Modelamiento Proceso</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>Modelo de Procesos de Negocio (MPN)</td><td><code>MPN</code></td><td>Gestor de Portafolio/Supervisor de Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 2_Requerimiento</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>RIN/ Historia de usuario (HU)</td><td><code>RIN</code></td><td>Gestor de Portafolio/Supervisor de Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 3_MRI</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>MRI</td><td><code>MRI_[Código Proyecto].doc</code></td><td>Supervisor de Desarrollo</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 4_Ana_Dis</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>F2 Análisis y Diseño</td><td><code>f2_[codmodulo]_ana_dis.doc</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>Diagrama de contexto</td><td><code>diagrama_[codmodulo]_contexto</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Diagrama de clases</td><td><code>diagrama_[codmodulo]_clases</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Diagrama de despliegue</td><td><code>diagrama_[codmodulo]_despliegue</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Diagrama de componentes</td><td><code>diagrama_[codmodulo]_componentes</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Modelo Lógico de Datos</td><td><code>modelo_[codmodulo]_log.ldm</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>Modelo Físico de Datos</td><td><code>modelo_[codmodulo]_fis.pdm</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr></tbody></table><h4 style="margin-top:1rem; color:#0066b3">📁 5_Pases a Producción</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>[Nro.Pase a Producción]</td><td><code>F2_[cod_modulo]_ana_dis.doc</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPP_[nropase].doc</code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPD_[nropase].doc</code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>IPS_[nropase].doc</code></td><td>Analista de Calidad</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>FAU_[nropase].doc</code></td><td>Analista de Calidad</td><td class="nowrap"><span class="badge ok">Obligatorio</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>manual_usuario_[codmodulo].doc, tutorial_[codmodulo].doc, </code></td><td>Programador de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr><tr><td>[Nro.Pase a Producción]</td><td><code>VerEst_[nropase].xls</code></td><td>Analista de Sistemas</td><td class="nowrap"><span class="badge">Opcional</span></td></tr></tbody></table><h3 style="margin-top:1.25rem">📂 3_Adquisición</h3><h4 style="margin-top:1rem; color:#0066b3">📁 2_FSW</h4><table class="data" style="margin-bottom:1rem"><thead><tr><th style="width:30%">Artefacto</th><th style="width:30%">Nomenclatura esperada</th><th style="width:20%">Rol responsable</th><th style="width:20%">Estado</th></tr></thead><tbody><tr><td>[OS_FSW]</td><td><code>Enlace a Directorio de las OS de FSW</code></td><td>Supervisor de Desarrollo</td><td class="nowrap"><span class="badge">Opcional</span> <span class="badge warn">Fuera del repo</span></td></tr></tbody></table></div>
         </div>
         
         </div>
@@ -409,18 +480,55 @@ Solo en fase Demanda  → mide solo contra Demanda</div>
 
       <div class="section">
         <div class="panel">
-          <h2>📘 Glosario</h2>
+          <h2>📘 Términos del dashboard</h2>
           <dl>
+            <dt><strong>Directorio</strong></dt>
+            <dd>Carpeta con código de proyecto o requerimiento (ej. <code>SNATI2026001</code>, <code>REQ2026005</code>).
+            Es la unidad básica de evaluación del dashboard.</dd>
+
             <dt><strong>Iniciativa</strong></dt>
-            <dd>Cualquier proyecto, requerimiento o demanda registrada bajo un código único (ej. <code>SNATI2026001</code>).</dd>
+            <dd>Sinónimo de directorio cuando se quiere referir a su contenido funcional.
+            Puede ser un Proyecto, un Requerimiento, o estar Solo en Demanda.</dd>
+
             <dt><strong>Negocio</strong></dt>
-            <dd>Primer segmento de la ruta antes del año (ej. <code>SNATI</code>, <code>SNAP</code>). Equivale al área o dominio de negocio.</dd>
+            <dd>Área o dominio funcional de TI (ej. <code>SNATI</code>, <code>SNAP</code>).
+            Es el primer segmento de la ruta del directorio en el repositorio.</dd>
+
+            <dt><strong>Fase</strong></dt>
+            <dd>Etapa del ciclo de vida documental: Demanda, Proyecto o Requerimiento.
+            Determina qué artefactos del catálogo aplican al directorio.</dd>
+
             <dt><strong>Tipo de iniciativa</strong></dt>
-            <dd>Se deduce por las carpetas existentes: "Proyecto", "Requerimiento" o "Solo_Demanda".</dd>
-            <dt><strong>Suma ponderada</strong></dt>
-            <dd>Los % agregados se calculan sumando presentes y esperados de todos los proyectos hijos y dividiendo. Evita el sesgo del promedio de promedios.</dd>
-            <dt><strong>Pares</strong></dt>
-            <dd>Otros proyectos con el mismo Negocio y mismo Año. Se usan como benchmark en la ficha individual.</dd>
+            <dd>Se deduce automáticamente según las carpetas presentes en el directorio:
+            "Proyecto" si tiene carpeta <code>Proyecto/</code>, "Requerimiento" si tiene
+            <code>Requerimiento/</code>, "Solo_Demanda" si solo hay fase Demanda.</dd>
+
+            <dt><strong>Artefacto</strong></dt>
+            <dd>Documento esperado según el catálogo (ej. Plan de Gestión, Acta de Constitución).
+            Cada artefacto tiene una nomenclatura esperada y un responsable.</dd>
+
+            <dt><strong>Nomenclatura</strong></dt>
+            <dd>Patrón de nombre que el archivo debe respetar para ser reconocido como un artefacto específico
+            (ej. <code>FN_[Cód.Nec]</code>, <code>Acta_proyecto_[Código Proyecto].doc</code>).</dd>
+
+            <dt><strong>Completitud</strong></dt>
+            <dd>Porcentaje de artefactos obligatorios presentes sobre los esperados. Es la métrica principal
+            del dashboard.</dd>
+
+            <dt><strong>Promedio ponderado</strong></dt>
+            <dd>Para los % agregados (por Negocio, por Año, global) se suman los presentes y los esperados
+            de todos los directorios hijos y se divide. Evita el sesgo del "promedio de promedios"
+            que daría peso igual a directorios pequeños y grandes.</dd>
+
+            <dt><strong>Directorios similares (pares)</strong></dt>
+            <dd>Otros directorios del mismo Negocio y mismo Año. Se usan como referencia comparativa
+            en la ficha individual.</dd>
+
+            <dt><strong>Archivos vigentes</strong></dt>
+            <dd>Documentos a nivel de la carpeta esperada (cuentan para la completitud).</dd>
+
+            <dt><strong>Archivos archivados</strong></dt>
+            <dd>Documentos dentro de la subcarpeta <code>historico/</code> (no cuentan, son versiones anteriores).</dd>
           </dl>
         </div>
       </div>
@@ -428,7 +536,7 @@ Solo en fase Demanda  → mide solo contra Demanda</div>
     </div>
     
     <div class="footer">
-      <div>Generado automáticamente el 06/05/2026 12:09</div>
+      <div>Generado automáticamente el 06/05/2026 15:45</div>
       <div class="text-sm">Fuente: descarga REST API de la biblioteca SPO "Demanda y Portafolio TI" · Catálogo v6 de artefactos obligatorios</div>
     </div>
     
