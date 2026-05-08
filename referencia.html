@@ -277,7 +277,7 @@
         </div>
         <div class="header-meta">
           <div>Última actualización</div>
-          <div class="updated-at">07/05/2026 12:49</div>
+          <div class="updated-at">08/05/2026 15:38</div>
         </div>
       </div>
     </div>
@@ -451,6 +451,220 @@ Solo Demanda   → mide solo contra Demanda</div>
 
       <div class="section">
         <div class="panel">
+          <h2>Subcarpetas no oficiales — el sistema sí las reconoce</h2>
+          <p>Si organizas tus archivos dentro de subcarpetas adicionales que no están definidas
+          en el catálogo (por ejemplo <code>1_Gestion/Versiones/</code>, <code>2_Producto/Borrador/</code>,
+          o <code>1_Gestion/2024/</code>), el sistema <strong>los detecta y cuenta para la completitud</strong>
+          mediante búsqueda recursiva.</p>
+
+          <p>Sin embargo, te recomendamos mantener los archivos a nivel de las carpetas oficiales
+          del catálogo. Cuando un archivo está en una subcarpeta no oficial:</p>
+          <ul>
+            <li>Aparece como <strong>presente</strong> en la ficha del directorio (cuenta para la completitud).</li>
+            <li>Se marca con un aviso <strong>"⚠️ Encontrado en subcarpeta no oficial"</strong> en "Artefactos detectados".</li>
+            <li>Se incluye en una alerta global al inicio de la ficha que sugiere reorganizar los archivos.</li>
+          </ul>
+
+          <div class="code-block">/Proyecto/1_Gestion/
+    ├── Plan_Gestion.docx                  ✅ Cuenta — ubicación oficial
+    ├── Versiones/
+    │   └── Plan_Gestion_v2.docx           ✅ Cuenta — pero alerta de ubicación no oficial
+    ├── 2024/
+    │   └── Acta.docx                      ✅ Cuenta — pero alerta de ubicación no oficial
+    └── historico/
+        └── Plan_Gestion_v1.docx           ❌ No cuenta — versión archivada</div>
+
+          <div class="alert alert-info" style="margin-top:1rem">
+            💡 <strong>Casos especiales:</strong> las subcarpetas que SÍ están en el catálogo
+            (como <code>2_Producto/MPN</code>, <code>2_Producto/DEF</code>, <code>2_Requerimiento</code>)
+            son ubicaciones oficiales y no generan alerta.
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+      <div class="section">
+        <div class="panel">
+          <h2>🔬 Cómo el sistema decide si un archivo cumple un artefacto</h2>
+          <p>Esta sección explica con detalle cómo el sistema relaciona los archivos que tú subes
+          al repositorio con los artefactos del catálogo. La idea es que cualquier resultado del
+          dashboard sea <strong>reproducible y comprensible</strong>: si un archivo aparece como
+          presente o faltante, debe quedar claro <em>por qué</em>.</p>
+
+          <h3 style="margin-top:1.25rem">Las tres capas de detección, en orden</h3>
+          <p>Para cada artefacto esperado del catálogo, el sistema busca un archivo correspondiente
+          aplicando estas tres capas en secuencia. Si la primera encuentra match, no usa las otras.
+          Si falla, intenta con la siguiente.</p>
+
+          <ol>
+            <li style="margin-bottom:0.75rem">
+              <strong>Capa 1 — Nomenclatura exacta (regex)</strong><br>
+              El sistema verifica si el nombre del archivo cumple el patrón oficial del catálogo
+              (por ejemplo <code>Plan_Gestion_Proyecto_Inf_[Código].docx</code>). Si encaja, el
+              artefacto se cuenta como presente sin alertas adicionales. Es el match más confiable.
+            </li>
+            <li style="margin-bottom:0.75rem">
+              <strong>Capa 2 — Heurística por palabras del nombre del artefacto</strong><br>
+              Si el archivo no respeta la nomenclatura, el sistema intenta detectarlo comparando las
+              palabras significativas del archivo con las palabras del nombre del artefacto en el
+              catálogo. Si la coincidencia supera un umbral, el archivo se cuenta como presente, pero
+              con una alerta visible (badge naranja "📝 nombre no estándar") y una sugerencia para
+              renombrarlo. Esta capa se explica en detalle más abajo.
+            </li>
+            <li>
+              <strong>Capa 3 — Genérico (cualquier archivo en la carpeta)</strong><br>
+              Solo aplica cuando el catálogo dice "Nomenclatura: No definido". En esos casos, cualquier
+              archivo en la carpeta correcta cuenta como presente con la nota "sin nomenclatura específica".
+              Es la capa más permisiva.
+            </li>
+          </ol>
+
+          <h3 style="margin-top:1.5rem">Capa 2 al detalle: cómo funciona la heurística</h3>
+          <p>La heurística es la capa más importante porque recupera muchos archivos que en la práctica
+          están bien subidos pero con nombres no estándar. Para mantener la transparencia, aquí está
+          exactamente qué hace el sistema:</p>
+
+          <h4 style="margin-top:1rem">Paso 1 — Normalizar ambos textos</h4>
+          <p>Tanto el nombre del archivo como el nombre del artefacto se normalizan así:</p>
+          <ul>
+            <li>Se eliminan las tildes (<code>Gestión</code> → <code>gestion</code>).</li>
+            <li>Se convierte todo a minúsculas (<code>ACTA</code> → <code>acta</code>).</li>
+            <li>Los separadores como guión bajo, guión, paréntesis, corchetes y puntos se tratan como espacios
+            (<code>Plan_Gestion-Proyecto</code> → <code>plan gestion proyecto</code>).</li>
+            <li>Se quita la extensión del archivo (<code>.docx</code>, <code>.pdf</code>, <code>.frpenc</code>, etc.).</li>
+          </ul>
+
+          <h4 style="margin-top:1rem">Paso 2 — Eliminar palabras vacías (stop words)</h4>
+          <p>Las siguientes palabras no aportan significado y se ignoran en ambos textos:</p>
+          <div class="code-block">de, del, la, las, el, los, en, para, con, por, y, o, a,
+es, ser, una, uno, su, sus, al, un, este, esta, sobre,
+que, si, no, etc</div>
+          <p>También se eliminan las secuencias puramente numéricas (códigos de proyecto, fechas, versiones).</p>
+
+          <h4 style="margin-top:1rem">Paso 3 — Expandir abreviaciones SUNAT</h4>
+          <p>Si el nombre del archivo o del artefacto contiene una abreviación conocida, el sistema
+          también considera sus palabras expandidas. Por ejemplo, un archivo llamado <code>FNN_001.docx</code>
+          se trata como si dijera "ficha necesidad", y por eso puede matchear con el artefacto
+          "Ficha de necesidad". Esta es la lista completa:</p>
+          <table class="data" style="font-size:0.85rem">
+            <thead><tr><th>Abreviación</th><th>Expansión que el sistema asocia</th></tr></thead>
+            <tbody>
+              <tr><td><code>ME</code></td><td>Memorándum</td></tr>
+              <tr><td><code>FNN</code></td><td>Ficha de Necesidad</td></tr>
+              <tr><td><code>MPN</code></td><td>Modelo de Procesos de Negocio</td></tr>
+              <tr><td><code>EDT</code></td><td>Estructura de Desglose del Trabajo</td></tr>
+              <tr><td><code>FPA</code></td><td>Puntos de Función</td></tr>
+              <tr><td><code>DSI</code></td><td>Diseño de Solución Informática</td></tr>
+              <tr><td><code>MRI</code></td><td>Matriz de Requerimiento Informático</td></tr>
+              <tr><td><code>F2</code></td><td>Informe de Definición</td></tr>
+              <tr><td><code>FSW</code></td><td>Fábrica de Software</td></tr>
+              <tr><td><code>OS</code></td><td>Orden de Servicio</td></tr>
+              <tr><td><code>IPP</code></td><td>Informe de Pase a Producción</td></tr>
+              <tr><td><code>IPD</code></td><td>Informe de Pruebas de Desarrollo</td></tr>
+              <tr><td><code>FAU</code></td><td>Ficha de Aceptación de Usuario</td></tr>
+              <tr><td><code>IPS</code></td><td>Informe de Pruebas de Sistema</td></tr>
+              <tr><td><code>DEF</code></td><td>Definición Funcional</td></tr>
+              <tr><td><code>HU</code></td><td>Historia de Usuario</td></tr>
+              <tr><td><code>RIN</code></td><td>Requerimiento Informático</td></tr>
+            </tbody>
+          </table>
+
+          <h4 style="margin-top:1rem">Paso 4 — Calcular un puntaje de similitud (score)</h4>
+          <p>El sistema compara las palabras del archivo con las del artefacto y calcula un puntaje
+          de coincidencia. No todas las palabras valen lo mismo:</p>
+          <ul>
+            <li><strong>Peso 1.0 (palabras discriminadoras):</strong> palabras que aparecen en pocos
+            artefactos del catálogo. Son las que realmente identifican un artefacto único. Ejemplos:
+            "constitución", "interesados", "lecciones", "memorándum", "cronograma".</li>
+            <li><strong>Peso 0.6 (algo genéricas):</strong> palabras que aparecen en 3 o 4 artefactos
+            del catálogo. Aportan algo, pero no son únicas. Ejemplos: "necesidad", "definición",
+            "consensuado", "inicial".</li>
+            <li><strong>Peso 0.3 (genéricas):</strong> palabras que aparecen en 5 o más artefactos.
+            No discriminan bien. Ejemplo: "modelo".</li>
+          </ul>
+          <p>El puntaje se calcula así:</p>
+          <div class="code-block">score = (suma de pesos de palabras coincidentes) / (suma de pesos de palabras del artefacto)</div>
+          <p>El score va de 0.00 (ninguna palabra coincide) a 1.00 (todas las palabras del artefacto
+          están en el archivo).</p>
+
+          <h4 style="margin-top:1rem">Paso 5 — Aplicar dos reglas de validación</h4>
+          <p>Para que la coincidencia se acepte como match real, debe cumplir <strong>ambas</strong>
+          condiciones:</p>
+          <ol>
+            <li><strong>Score ≥ 0.65:</strong> al menos el 65% del peso de las palabras del artefacto
+            debe estar en el archivo.</li>
+            <li><strong>Al menos una palabra discriminadora coincide (peso 1.0):</strong> esto evita
+            falsos positivos donde solo coinciden palabras genéricas. Por ejemplo, un archivo "Acta de
+            reunión" no debería contar como "Plan de Gestión del Proyecto" solo porque ambos comparten
+            "proyecto" o "gestión".</li>
+          </ol>
+
+          <h4 style="margin-top:1rem">Paso 6 — Evitar la doble asignación</h4>
+          <p>Un mismo archivo no puede satisfacer dos artefactos distintos. Si el sistema ya asignó
+          un archivo a un artefacto, ese archivo queda fuera de candidatos para el resto. Esto previene
+          que un solo archivo "infle" la completitud del directorio cumpliendo varios artefactos a la vez.</p>
+
+          <h3 style="margin-top:1.5rem">Ejemplo paso a paso (caso real del repositorio)</h3>
+          <p>Supongamos que el catálogo espera el artefacto <strong>"Plan de Gestión del Proyecto"</strong>
+          en la carpeta <code>Proyecto/1_Gestion</code>. En el directorio del JPI hay un archivo llamado:</p>
+          <div class="code-block">Plan de Gestión de Proyectos Informáticos - INSI2025001.docx</div>
+          <p>El sistema lo procesa así:</p>
+          <ol>
+            <li><strong>Capa 1 (regex):</strong> el archivo no respeta el patrón
+            <code>Plan_Gestion_Proyecto_Inf_[Código]</code>. <em>Falla.</em></li>
+            <li><strong>Capa 2 (heurística):</strong>
+              <ul>
+                <li>Palabras del archivo (normalizadas, sin stop words): <code>{plan, gestion, proyectos, informaticos, insi2025001}</code></li>
+                <li>Palabras del artefacto (normalizadas, sin stop words): <code>{plan, gestion, proyecto}</code></li>
+                <li>Palabras coincidentes: <code>{plan, gestion}</code> (la palabra "proyecto" no
+                coincide con "proyectos" exactamente; el sistema usa coincidencia exacta de tokens).</li>
+                <li>Pesos: <code>plan</code>=0.6, <code>gestion</code>=1.0, <code>proyecto</code>=0.6.
+                Suma del artefacto = 2.2. Suma de coincidentes = 1.6. Score = 1.6/2.2 = <strong>0.73</strong>.</li>
+                <li>¿Pasa el umbral 0.65? Sí. ¿Tiene al menos una palabra discriminadora (peso 1.0)?
+                Sí ("gestion"). <em>Match aceptado.</em></li>
+              </ul>
+            </li>
+          </ol>
+          <p>El artefacto se cuenta como presente, pero en la ficha aparece el badge naranja con la
+          sugerencia de renombrar el archivo a la nomenclatura oficial.</p>
+
+          <h3 style="margin-top:1.5rem">Limitaciones que debes conocer</h3>
+          <p>La heurística no es perfecta y conviene ser explícitos sobre sus límites:</p>
+          <ul>
+            <li><strong>Coincidencia exacta de tokens:</strong> el sistema considera "proyecto" y
+            "proyectos" como palabras distintas. No hace análisis morfológico avanzado.</li>
+            <li><strong>Falsos positivos posibles:</strong> si dos artefactos del catálogo comparten
+            varias palabras significativas, un archivo puede ser asignado al "incorrecto" desde tu
+            perspectiva. Si detectas un caso así, repórtalo para ajustar la configuración.</li>
+            <li><strong>Falsos negativos posibles:</strong> si el JPI usó un nombre completamente
+            distinto (ejemplo: "documento1.docx") sin ninguna palabra del nombre del artefacto, el
+            sistema no podrá identificarlo aunque el contenido sea correcto. En esos casos solo la
+            inspección manual lo detectaría.</li>
+            <li><strong>El sistema no abre archivos:</strong> solo evalúa nombres. No revisa el contenido
+            ni los metadatos del documento.</li>
+            <li><strong>Las abreviaciones reconocidas son una lista cerrada:</strong> si tu equipo usa
+            otra abreviación que no está en la tabla de arriba, no será reconocida hasta que se agregue
+            a la configuración del sistema.</li>
+          </ul>
+
+          <div class="alert alert-info" style="margin-top:1rem">
+            💡 <strong>Recomendación para JPI:</strong> aunque el sistema reconozca tu archivo por
+            similitud, sigue la nomenclatura oficial cuando sea posible. Esto facilita la búsqueda
+            manual, evita ambigüedades cuando hay archivos con nombres parecidos y mantiene la
+            documentación ordenada.
+          </div>
+
+          <div class="alert alert-info" style="margin-top:0.75rem">
+            🔍 <strong>¿Crees que un match es incorrecto?</strong> Si en la ficha de tu directorio
+            aparece un artefacto detectado por similitud que no corresponde, repórtalo al equipo
+            responsable del dashboard indicando: el código del directorio, el nombre del artefacto, y
+            el nombre del archivo en cuestión. Con esa información se puede ajustar el comportamiento.
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="panel">
           <h2>📋 Catálogo de artefactos esperados</h2>
           <p class="text-muted">Total: <strong>71</strong> artefactos definidos ·
           <strong>46</strong> obligatorios ·
@@ -543,7 +757,7 @@ Solo Demanda   → mide solo contra Demanda</div>
     </div>
     
     <div class="footer">
-      <div>Generado automáticamente el 07/05/2026 12:49</div>
+      <div>Generado automáticamente el 08/05/2026 15:38</div>
     </div>
     
 
